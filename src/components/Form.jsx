@@ -60,6 +60,49 @@ const Form = () => {
             />
           </div>
         </div>
+        <div className="flex items-center justify-between">
+          <div className="flex flex-col ">
+            <label className="text-md font-semibold">Hobbies</label>
+            <input
+              type="text"
+              className="w-full p-2 outline-none border border-gray-300  rounded-lg"
+              placeholder="Enter your f'name"
+            />
+          </div>
+          <div className="flex flex-col text-start w-[200px]">
+           <label className="text-md font-semibold">Genders</label>
+            <select name="" id="" className="   "> {/*<label className="text-md font-semibold">Genders</label> */}
+            <option value="male">
+                <input
+              type="radio"
+              className="w-full p-2 outline-none border border-gray-300  rounded-lg"
+              placeholder="Enter your cell number"
+              name="male"
+            />Male
+            </option>
+            <option value="female">
+                <input
+              type="radio"
+              className="w-full p-2 outline-none border border-gray-300  rounded-lg"
+              placeholder="Enter your cell number"
+              name="female"
+            />Female
+            </option>
+            <option value="other">
+                <input
+              type="radio"
+              className="w-full p-2 outline-none border border-gray-300  rounded-lg"
+              placeholder="Enter your cell number"
+              name="male"
+            />other
+            </option>
+            </select> 
+          </div>
+        </div>
+        <div>
+
+        <input type="button" value="submit" className="w-full p-2 outline-none border border-indigo-500 rounded-lg bg-indigo-600 text-white hover:bg-indigo-700 scale-110 duration-300"/>
+        </div>
       </form>
     </div>
   );
