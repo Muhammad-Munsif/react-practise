@@ -8,7 +8,7 @@ const Form = () => {
         <div className='flex items-center justify-between my-3'>
         <div className='flex flex-col '>
             <label className='text-md font-semibold'>First Name</label>
-            <input type="text" className='w-full p-2 outline-none border border-gray-300  rounded-lg' placeholder='Enter your name' />
+            <input type="text" className='w-full p-2 outline-none border border-gray-300  rounded-lg' placeholder='Enter your name' required />
         </div>
         <div className='flex flex-col '>
             <label className='text-md font-semibold'>Last Name</label>
@@ -28,7 +28,7 @@ const Form = () => {
         <div className='flex items-center justify-between my-3'>
         <div className='flex flex-col '>
             <label className='text-md font-semibold'>Email</label>
-            <input type="email" className='w-full p-2 outline-none border border-gray-300  rounded-lg' placeholder='Enter your name' />
+            <input type="email" className='w-full p-2 outline-none border border-gray-300  rounded-lg' placeholder='Enter your email' />
         </div>
         <div className='flex flex-col '>
             <label className='text-md font-semibold'>Password</label>
