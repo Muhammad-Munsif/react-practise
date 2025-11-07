@@ -2,13 +2,14 @@ import React from "react";
 
 const Form = () => {
   return (
-   
     <div className="bg-white rounded-lg w-full max-w-xl mx-auto p-5 mt-5 shadow-xl">
       <h1 className="text-center font-bold text-2xl mb-5">Registration Form</h1>
       <form>
         <div className="flex flex-col sm:flex-row gap-4 mb-3">
           <div className="flex flex-col w-full sm:w-1/2">
-            <label className="text-md font-semibold" htmlFor="first-name">First Name</label>
+            <label className="text-md font-semibold" htmlFor="first-name">
+              First Name
+            </label>
             <input
               id="first-name"
               type="text"
@@ -18,7 +19,9 @@ const Form = () => {
             />
           </div>
           <div className="flex flex-col w-full sm:w-1/2">
-            <label className="text-md font-semibold" htmlFor="last-name">Last Name</label>
+            <label className="text-md font-semibold" htmlFor="last-name">
+              Last Name
+            </label>
             <input
               id="last-name"
               type="text"
@@ -30,7 +33,9 @@ const Form = () => {
 
         <div className="flex flex-col sm:flex-row gap-4 mb-3">
           <div className="flex flex-col w-full sm:w-1/2">
-            <label className="text-md font-semibold" htmlFor="father-name">Father's Name</label>
+            <label className="text-md font-semibold" htmlFor="father-name">
+              Father's Name
+            </label>
             <input
               id="father-name"
               type="text"
@@ -39,7 +44,9 @@ const Form = () => {
             />
           </div>
           <div className="flex flex-col w-full sm:w-1/2">
-            <label className="text-md font-semibold" htmlFor="cnic">CNIC No</label>
+            <label className="text-md font-semibold" htmlFor="cnic">
+              CNIC No
+            </label>
             <input
               id="cnic"
               type="number"
@@ -51,7 +58,9 @@ const Form = () => {
 
         <div className="flex flex-col sm:flex-row gap-4 mb-3">
           <div className="flex flex-col w-full sm:w-1/2">
-            <label className="text-md font-semibold" htmlFor="email">Email</label>
+            <label className="text-md font-semibold" htmlFor="email">
+              Email
+            </label>
             <input
               id="email"
               type="email"
@@ -60,7 +69,9 @@ const Form = () => {
             />
           </div>
           <div className="flex flex-col w-full sm:w-1/2">
-            <label className="text-md font-semibold" htmlFor="password">Password</label>
+            <label className="text-md font-semibold" htmlFor="password">
+              Password
+            </label>
             <input
               id="password"
               type="password"
@@ -72,7 +83,9 @@ const Form = () => {
 
         <div className="flex flex-col sm:flex-row gap-4 mb-5">
           <div className="flex flex-col w-full sm:w-1/2">
-            <label className="text-md font-semibold" htmlFor="hobbies">Hobbies</label>
+            <label className="text-md font-semibold" htmlFor="hobbies">
+              Hobbies
+            </label>
             <input
               id="hobbies"
               type="text"
@@ -83,7 +96,9 @@ const Form = () => {
             />
           </div>
           <div className="flex flex-col w-full sm:w-1/2">
-            <label className="text-md font-semibold" htmlFor="gender">Gender</label>
+            <label className="text-md font-semibold" htmlFor="gender">
+              Gender
+            </label>
             <select
               id="gender"
               className="w-full p-2 outline-none border border-gray-300 rounded-lg focus:border-indigo-500 bg-white cursor-pointer transition duration-150"
