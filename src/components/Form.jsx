@@ -17,11 +17,22 @@ const Form = () => {
         setInputData((preData) =>({
             ...preData, [name]: value,
         }));
+        
     };
     
     const formSubmit = (e) =>{
         e.preventDefault()
         console.log("Form data submitted" , inputData)
+    setInputData({
+      firstName : "",
+      lastName : "",
+      fName : "",
+      cnic : "",
+      email : "",
+      password : "",
+      hobbies : "",
+      gender : "",
+    })
     }
 
   return (
