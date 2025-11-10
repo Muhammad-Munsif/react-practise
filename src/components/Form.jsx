@@ -1,44 +1,44 @@
 import React, { useState } from "react";
 
 const Form = () => {
-    const [inputData, setInputData] = useState({
-        firstName : "",
-        lastName : "",
-        fName : "",
-        cnic : "",
-        email : "",
-        password : "",
-        hobbies : "",
-        gender : "",
-    })
+  const [inputData, setInputData] = useState({
+    firstName: "",
+    lastName: "",
+    fName: "",
+    cnic: "",
+    email: "",
+    password: "",
+    hobbies: "",
+    gender: "",
+  });
 
-    const handleFormData = (e) =>{
-        const {name, value} = e.target
-        setInputData((preData) =>({
-            ...preData, [name]: value,
-        }));
-        
-    };
-    
-    const formSubmit = (e) =>{
-        e.preventDefault()
-        console.log("Form data submitted" , inputData)
+  const handleFormData = (e) => {
+    const { name, value } = e.target;
+    setInputData((preData) => ({
+      ...preData,
+      [name]: value,
+    }));
+  };
+
+  const formSubmit = (e) => {
+    e.preventDefault();
+    console.log("Form data submitted", inputData);
     setInputData({
-      firstName : "",
-      lastName : "",
-      fName : "",
-      cnic : "",
-      email : "",
-      password : "",
-      hobbies : "",
-      gender : "",
-    })
-    }
+      firstName: "",
+      lastName: "",
+      fName: "",
+      cnic: "",
+      email: "",
+      password: "",
+      hobbies: "",
+      gender: "",
+    });
+  };
 
   return (
     <div className="bg-white rounded-lg w-full max-w-xl mx-auto p-5 mt-5 shadow-xl">
       <h1 className="text-center font-bold text-2xl mb-5">Registration Form</h1>
-      <form >
+      <form>
         <div className="flex flex-col sm:flex-row gap-4 mb-3">
           <div className="flex flex-col w-full sm:w-1/2">
             <label className="text-md font-semibold" htmlFor="first-name">
@@ -141,7 +141,7 @@ const Form = () => {
             <input
               id="hobbies"
               name="hobbies"
-              value ={inputData.hobbies}
+              value={inputData.hobbies}
               onChange={handleFormData}
               type="text"
               className="w-full p-2 outline-none border border-gray-300 rounded-lg focus:border-indigo-500 transition duration-150"
@@ -171,9 +171,8 @@ const Form = () => {
         <div>
           <button
             type="submit"
-            
             className="w-full p-2 outline-none border border-indigo-500 rounded-lg bg-indigo-600 text-white font-semibold hover:bg-indigo-700 transition duration-300 transform hover:scale-105"
-          onClick={formSubmit}
+            onClick={formSubmit}
           >
             Submit
           </button>
