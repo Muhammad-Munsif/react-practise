@@ -146,7 +146,6 @@ const Form = () => {
               type="text"
               className="w-full p-2 outline-none border border-gray-300 rounded-lg focus:border-indigo-500 transition duration-150"
               placeholder="Enter your hobbies"
-              readOnly
             />
           </div>
           <div className="flex flex-col w-full sm:w-1/2">
