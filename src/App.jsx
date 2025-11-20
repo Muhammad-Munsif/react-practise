@@ -6,10 +6,16 @@ import Component from "./components/Component";
 import Jsx from "./components/Jsx";
 import Form from "./components/Form";
 import Table from "./components/Table";
+import RandomUsers from "./components/RandomUsers";
+import ReqResUsers from "./components/ReqResUsers";
+import UserManagement from "./components/UsersManagement";
 
 function App() {
   return (
     <div className="bg-gray-200 p-5 mx-auto min-h-screen ">
+      <RandomUsers/>
+      <ReqResUsers/>
+      <UserManagement/>
       <Table/>
       <Form />
       <Component />

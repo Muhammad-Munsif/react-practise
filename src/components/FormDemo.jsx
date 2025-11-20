@@ -14,7 +14,7 @@ const FormDemo = () => {
   return (
     <Form
       form={form}
-      layout="vertical"
+      layout="horizantal"
       onFinish={onFinish}
       style={{ maxWidth: 600 }}
       className=''
