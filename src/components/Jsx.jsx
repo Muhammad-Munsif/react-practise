@@ -22,6 +22,7 @@ const Jsx = () => {
         ))}
       </ul>
       <div className="w-4/5 mx-auto bg-white rounded-lg p-3 border-2 border-red-400">
+      <ButtonDemo/>
         <div className="flex items-center justify-center gap-3 flex-col">
           <h1 className="text-center">Person details</h1>
           <details className="transition-all duration-300">
@@ -35,9 +36,11 @@ const Jsx = () => {
             </td>
           </details>
         </div>
+        <FormDemo/>
       </div>
     </div>
   );
 };
 
 export default Jsx;
+

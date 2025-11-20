@@ -1,4 +1,7 @@
 import { useState } from "react";
+import 'antd/dist/reset.css'; // For antd v5
+// or for older versions
+// import 'antd/dist/antd.css';
 import Component from "./components/Component";
 import Jsx from "./components/Jsx";
 import Form from "./components/Form";
