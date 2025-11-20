@@ -17,6 +17,7 @@ const FormDemo = () => {
       layout="vertical"
       onFinish={onFinish}
       style={{ maxWidth: 600 }}
+      className=''
     >
       <Form.Item
         label="Username"
@@ -46,7 +47,7 @@ const FormDemo = () => {
       </Form.Item>
 
       <Form.Item label="Birth Date" name="birthDate">
-        <DatePicker style={{ width: '100%' }} />
+        <DatePicker style={{ width: '100%', }} />
       </Form.Item>
 
       <Form.Item label="Age" name="age">
@@ -58,7 +59,7 @@ const FormDemo = () => {
       </Form.Item>
 
       <Form.Item label="Subscribe" name="subscribe" valuePropName="checked">
-        <Switch />
+        <Switch  className='bg-blue-600 '/>
       </Form.Item>
 
       <Form.Item>

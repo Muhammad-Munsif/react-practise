@@ -1,4 +1,6 @@
 import React from "react";
+import ButtonDemo from "./ButtonDemo";
+import FormDemo from "./FormDemo";
 
 const Jsx = () => {
   const fiurt = "welcome";
