@@ -1,5 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { Table, Button, Modal, Form, Input, Space, message, Card, Spin } from "antd";
+import {
+  Table,
+  Button,
+  Modal,
+  Form,
+  Input,
+  Space,
+  message,
+  Card,
+  Spin,
+} from "antd";
 import { PlusOutlined, EditOutlined, DeleteOutlined } from "@ant-design/icons";
 
 const ReqResUsers = () => {
@@ -16,13 +26,13 @@ const ReqResUsers = () => {
     setLoading(true);
     try {
       const response = await fetch(`${API_URL}?page=${page}`);
-      
+
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-      
+
       const data = await response.json();
-      
+
       // Ensure data.data exists and is an array
       if (data && Array.isArray(data.data)) {
         setUsers(data.data);
@@ -73,7 +83,7 @@ const ReqResUsers = () => {
         const previousUsers = Array.isArray(prev) ? prev : [];
         return [newUser, ...previousUsers];
       });
-      
+
       message.success("User created successfully!");
       return true;
     } catch (error) {
@@ -102,11 +112,11 @@ const ReqResUsers = () => {
       // Safely update local state
       setUsers((prev) => {
         const previousUsers = Array.isArray(prev) ? prev : [];
-        return previousUsers.map((user) => 
+        return previousUsers.map((user) =>
           user.id === id ? { ...user, ...userData } : user
         );
       });
-      
+
       message.success("User updated successfully!");
       return true;
     } catch (error) {
@@ -133,7 +143,7 @@ const ReqResUsers = () => {
         const previousUsers = Array.isArray(prev) ? prev : [];
         return previousUsers.filter((user) => user.id !== id);
       });
-      
+
       message.success("User deleted successfully!");
     } catch (error) {
       console.error("Error deleting user:", error);
@@ -154,7 +164,12 @@ const ReqResUsers = () => {
         <img
           src={avatar}
           alt="avatar"
-          style={{ width: 50, height: 50, borderRadius: "50%", objectFit: "cover" }}
+          style={{
+            width: 50,
+            height: 50,
+            borderRadius: "50%",
+            objectFit: "cover",
+          }}
         />
       ),
     },
@@ -187,16 +202,16 @@ const ReqResUsers = () => {
       width: 150,
       render: (_, record) => (
         <Space>
-          <Button 
-            type="link" 
+          <Button
+            type="link"
             icon={<EditOutlined />}
             onClick={() => handleEdit(record)}
           >
             Edit
           </Button>
-          <Button 
-            type="link" 
-            danger 
+          <Button
+            type="link"
+            danger
             icon={<DeleteOutlined />}
             onClick={() => deleteUser(record.id)}
           >
@@ -210,8 +225,8 @@ const ReqResUsers = () => {
   const handleEdit = (user) => {
     setEditingUser(user);
     form.setFieldsValue({
-      name: `${user.first_name || ''} ${user.last_name || ''}`.trim(),
-      email: user.email || '',
+      name: `${user.first_name || ""} ${user.last_name || ""}`.trim(),
+      email: user.email || "",
     });
     setIsModalOpen(true);
   };
@@ -219,12 +234,12 @@ const ReqResUsers = () => {
   const handleSubmit = async (values) => {
     try {
       let success = false;
-      
+
       if (editingUser) {
         const nameParts = values.name.split(" ");
         const first_name = nameParts[0] || values.name;
         const last_name = nameParts.slice(1).join(" ") || "";
-        
+
         success = await updateUser(editingUser.id, {
           first_name,
           last_name,
@@ -259,16 +274,20 @@ const ReqResUsers = () => {
 
   return (
     <div style={{ padding: 24 }}>
-      <Card 
-        title="User Management" 
+      <Card
+        title="User Management"
         extra={
-          <Button type="primary" icon={<PlusOutlined />} onClick={handleAddUser}>
+          <Button
+            type="primary"
+            icon={<PlusOutlined />}
+            onClick={handleAddUser}
+          >
             Add User
           </Button>
         }
       >
         {loading ? (
-          <div style={{ textAlign: 'center', padding: '50px' }}>
+          <div style={{ textAlign: "center", padding: "50px" }}>
             <Spin size="large" />
             <div style={{ marginTop: 16 }}>Loading users...</div>
           </div>
@@ -278,15 +297,15 @@ const ReqResUsers = () => {
             dataSource={users}
             rowKey="id"
             loading={loading}
-            pagination={{ 
+            pagination={{
               pageSize: 6,
               showSizeChanger: false,
-              showTotal: (total, range) => 
-                `${range[0]}-${range[1]} of ${total} users`
+              showTotal: (total, range) =>
+                `${range[0]}-${range[1]} of ${total} users`,
             }}
             scroll={{ x: 800 }}
             locale={{
-              emptyText: "No users found"
+              emptyText: "No users found",
             }}
           />
         )}
@@ -301,9 +320,9 @@ const ReqResUsers = () => {
         cancelText="Cancel"
         destroyOnClose
       >
-        <Form 
-          form={form} 
-          layout="vertical" 
+        <Form
+          form={form}
+          layout="vertical"
           onFinish={handleSubmit}
           autoComplete="off"
         >
@@ -312,7 +331,7 @@ const ReqResUsers = () => {
             name="name"
             rules={[
               { required: true, message: "Please input user's full name!" },
-              { min: 2, message: "Name must be at least 2 characters!" }
+              { min: 2, message: "Name must be at least 2 characters!" },
             ]}
           >
             <Input placeholder="Enter first and last name" />
