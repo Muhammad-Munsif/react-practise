@@ -1,5 +1,13 @@
-import React from 'react';
-import { Form, Input, Button, Select, DatePicker, InputNumber, Switch } from 'antd';
+import React from "react";
+import {
+  Form,
+  Input,
+  Button,
+  Select,
+  DatePicker,
+  InputNumber,
+  Switch,
+} from "antd";
 
 const { Option } = Select;
 const { TextArea } = Input;
@@ -8,7 +16,7 @@ const FormDemo = () => {
   const [form] = Form.useForm();
 
   const onFinish = (values) => {
-    console.log('Form values:', values);
+    console.log("Form values:", values);
   };
 
   return (
@@ -17,12 +25,12 @@ const FormDemo = () => {
       layout="horizantal"
       onFinish={onFinish}
       style={{ maxWidth: 600 }}
-      className=''
+      className=""
     >
       <Form.Item
         label="Username"
         name="username"
-        rules={[{ required: true, message: 'Please input your username!' }]}
+        rules={[{ required: true, message: "Please input your username!" }]}
       >
         <Input placeholder="Enter username" />
       </Form.Item>
@@ -31,8 +39,8 @@ const FormDemo = () => {
         label="Email"
         name="email"
         rules={[
-          { required: true, message: 'Please input your email!' },
-          { type: 'email', message: 'Please enter a valid email!' }
+          { required: true, message: "Please input your email!" },
+          { type: "email", message: "Please enter a valid email!" },
         ]}
       >
         <Input placeholder="Enter email" />
@@ -47,11 +55,11 @@ const FormDemo = () => {
       </Form.Item>
 
       <Form.Item label="Birth Date" name="birthDate">
-        <DatePicker style={{ width: '100%', }} />
+        <DatePicker style={{ width: "100%" }} />
       </Form.Item>
 
       <Form.Item label="Age" name="age">
-        <InputNumber min={1} max={100} style={{ width: '100%' }} />
+        <InputNumber min={1} max={100} style={{ width: "100%" }} />
       </Form.Item>
 
       <Form.Item label="Description" name="description">
@@ -59,7 +67,7 @@ const FormDemo = () => {
       </Form.Item>
 
       <Form.Item label="Subscribe" name="subscribe" valuePropName="checked">
-        <Switch  className='bg-blue-600 '/>
+        <Switch className="bg-blue-600 " />
       </Form.Item>
 
       <Form.Item>
