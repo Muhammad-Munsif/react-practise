@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Table, Button, Modal, Form, Input, Space, message } from 'antd';
+import React, { useState, useEffect } from "react";
+import { Table, Button, Modal, Form, Input, Space, message } from "antd";
 
 const ReqResUsers = () => {
   const [users, setUsers] = useState([]);
@@ -8,7 +8,7 @@ const ReqResUsers = () => {
   const [editingUser, setEditingUser] = useState(null);
   const [form] = Form.useForm();
 
-  const API_URL = 'https://reqres.in/api/users';
+  const API_URL = "https://reqres.in/api/users";
 
   const fetchUsers = async (page = 1) => {
     setLoading(true);
@@ -17,7 +17,7 @@ const ReqResUsers = () => {
       const data = await response.json();
       setUsers(data.data);
     } catch (error) {
-      message.error('Failed to fetch users');
+      message.error("Failed to fetch users");
     } finally {
       setLoading(false);
     }
@@ -26,60 +26,60 @@ const ReqResUsers = () => {
   const createUser = async (userData) => {
     try {
       const response = await fetch(API_URL, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(userData),
       });
       const data = await response.json();
-      
+
       // ReqRes doesn't actually create the user, so we simulate it
       const newUser = {
         id: Date.now(), // Temporary ID
         email: userData.email,
-        first_name: userData.name.split(' ')[0],
-        last_name: userData.name.split(' ')[1] || '',
-        avatar: `https://i.pravatar.cc/150?u=${Date.now()}`
+        first_name: userData.name.split(" ")[0],
+        last_name: userData.name.split(" ")[1] || "",
+        avatar: `https://i.pravatar.cc/150?u=${Date.now()}`,
       };
-      
-      setUsers(prev => [...prev, newUser]);
-      message.success('User created successfully!');
+
+      setUsers((prev) => [...prev, newUser]);
+      message.success("User created successfully!");
     } catch (error) {
-      message.error('Failed to create user');
+      message.error("Failed to create user");
     }
   };
 
   const updateUser = async (id, userData) => {
     try {
       const response = await fetch(`${API_URL}/${id}`, {
-        method: 'PUT',
+        method: "PUT",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(userData),
       });
       const data = await response.json();
-      
+
       // Update local state
-      setUsers(prev => prev.map(user => 
-        user.id === id ? { ...user, ...userData } : user
-      ));
-      message.success('User updated successfully!');
+      setUsers((prev) =>
+        prev.map((user) => (user.id === id ? { ...user, ...userData } : user))
+      );
+      message.success("User updated successfully!");
     } catch (error) {
-      message.error('Failed to update user');
+      message.error("Failed to update user");
     }
   };
 
   const deleteUser = async (id) => {
     try {
       await fetch(`${API_URL}/${id}`, {
-        method: 'DELETE',
+        method: "DELETE",
       });
-      setUsers(prev => prev.filter(user => user.id !== id));
-      message.success('User deleted successfully!');
+      setUsers((prev) => prev.filter((user) => user.id !== id));
+      message.success("User deleted successfully!");
     } catch (error) {
-      message.error('Failed to delete user');
+      message.error("Failed to delete user");
     }
   };
 
@@ -89,38 +89,46 @@ const ReqResUsers = () => {
 
   const columns = [
     {
-      title: 'Avatar',
-      dataIndex: 'avatar',
-      key: 'avatar',
-      render: (avatar) => <img src={avatar} alt="avatar" style={{ width: 50, borderRadius: '50%' }} />,
+      title: "Avatar",
+      dataIndex: "avatar",
+      key: "avatar",
+      render: (avatar) => (
+        <img
+          src={avatar}
+          alt="avatar"
+          style={{ width: 50, borderRadius: "50%" }}
+        />
+      ),
     },
     {
-      title: 'ID',
-      dataIndex: 'id',
-      key: 'id',
+      title: "ID",
+      dataIndex: "id",
+      key: "id",
     },
     {
-      title: 'First Name',
-      dataIndex: 'first_name',
-      key: 'first_name',
+      title: "First Name",
+      dataIndex: "first_name",
+      key: "first_name",
     },
     {
-      title: 'Last Name',
-      dataIndex: 'last_name',
-      key: 'last_name',
+      title: "Last Name",
+      dataIndex: "last_name",
+      key: "last_name",
     },
     {
-      title: 'Email',
-      dataIndex: 'email',
-      key: 'email',
+      title: "Email",
+      dataIndex: "email",
+      key: "email",
     },
     {
-      title: 'Actions',
-      key: 'actions',
+      title: "Actions",
+      key: "actions",
       render: (_, record) => (
         <Space>
           <Button onClick={() => handleEdit(record)}>Edit</Button>
-          <Button danger onClick={() => deleteUser(record.id)}>Delete</Button>
+          <Button danger onClick={() => deleteUser(record.id)}>
+            Delete
+          </Button>
         </Space>
       ),
     },
@@ -137,7 +145,7 @@ const ReqResUsers = () => {
 
   const handleSubmit = (values) => {
     if (editingUser) {
-      const [first_name, last_name] = values.name.split(' ');
+      const [first_name, last_name] = values.name.split(" ");
       updateUser(editingUser.id, {
         first_name,
         last_name,
@@ -152,8 +160,8 @@ const ReqResUsers = () => {
 
   return (
     <div style={{ padding: 24 }}>
-      <Button 
-        type="primary" 
+      <Button
+        type="primary"
         onClick={() => {
           setEditingUser(null);
           form.resetFields();
@@ -164,7 +172,7 @@ const ReqResUsers = () => {
         Add User
       </Button>
 
-      <Table 
+      <Table
         columns={columns}
         dataSource={users}
         rowKey="id"
@@ -173,7 +181,7 @@ const ReqResUsers = () => {
       />
 
       <Modal
-        title={editingUser ? 'Edit User' : 'Add User'}
+        title={editingUser ? "Edit User" : "Add User"}
         open={isModalOpen}
         onCancel={() => setIsModalOpen(false)}
         onOk={() => form.submit()}
@@ -182,7 +190,7 @@ const ReqResUsers = () => {
           <Form.Item
             label="Name"
             name="name"
-            rules={[{ required: true, message: 'Please input name!' }]}
+            rules={[{ required: true, message: "Please input name!" }]}
           >
             <Input />
           </Form.Item>
@@ -190,8 +198,8 @@ const ReqResUsers = () => {
             label="Email"
             name="email"
             rules={[
-              { required: true, message: 'Please input email!' },
-              { type: 'email', message: 'Please enter valid email!' }
+              { required: true, message: "Please input email!" },
+              { type: "email", message: "Please enter valid email!" },
             ]}
           >
             <Input />
