@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { Table, Button, Space, message, Card, Avatar } from 'antd';
-import { UserOutlined, EditOutlined, DeleteOutlined } from '@ant-design/icons';
+import React, { useState, useEffect } from "react";
+import { Table, Button, Space, message, Card, Avatar } from "antd";
+import { UserOutlined, EditOutlined, DeleteOutlined } from "@ant-design/icons";
 
 const UserManagement = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const API_URL = 'https://jsonplaceholder.typicode.com/users';
+  const API_URL = "https://jsonplaceholder.typicode.com/users";
 
   // Fetch users
   const fetchUsers = async () => {
@@ -16,7 +16,7 @@ const UserManagement = () => {
       const data = await response.json();
       setUsers(data);
     } catch (error) {
-      message.error('Failed to fetch users');
+      message.error("Failed to fetch users");
     } finally {
       setLoading(false);
     }
@@ -26,17 +26,17 @@ const UserManagement = () => {
   const createUser = async (userData) => {
     try {
       const response = await fetch(API_URL, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(userData),
       });
       const data = await response.json();
-      setUsers(prev => [...prev, { ...userData, id: data.id }]);
-      message.success('User created successfully!');
+      setUsers((prev) => [...prev, { ...userData, id: data.id }]);
+      message.success("User created successfully!");
     } catch (error) {
-      message.error('Failed to create user');
+      message.error("Failed to create user");
     }
   };
 
@@ -44,17 +44,17 @@ const UserManagement = () => {
   const updateUser = async (id, userData) => {
     try {
       const response = await fetch(`${API_URL}/${id}`, {
-        method: 'PUT',
+        method: "PUT",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(userData),
       });
       const data = await response.json();
-      setUsers(prev => prev.map(user => user.id === id ? data : user));
-      message.success('User updated successfully!');
+      setUsers((prev) => prev.map((user) => (user.id === id ? data : user)));
+      message.success("User updated successfully!");
     } catch (error) {
-      message.error('Failed to update user');
+      message.error("Failed to update user");
     }
   };
 
@@ -62,12 +62,12 @@ const UserManagement = () => {
   const deleteUser = async (id) => {
     try {
       await fetch(`${API_URL}/${id}`, {
-        method: 'DELETE',
+        method: "DELETE",
       });
-      setUsers(prev => prev.filter(user => user.id !== id));
-      message.success('User deleted successfully!');
+      setUsers((prev) => prev.filter((user) => user.id !== id));
+      message.success("User deleted successfully!");
     } catch (error) {
-      message.error('Failed to delete user');
+      message.error("Failed to delete user");
     }
   };
 
@@ -77,15 +77,15 @@ const UserManagement = () => {
 
   const columns = [
     {
-      title: 'ID',
-      dataIndex: 'id',
-      key: 'id',
+      title: "ID",
+      dataIndex: "id",
+      key: "id",
       width: 80,
     },
     {
-      title: 'Name',
-      dataIndex: 'name',
-      key: 'name',
+      title: "Name",
+      dataIndex: "name",
+      key: "name",
       render: (name, record) => (
         <Space>
           <Avatar icon={<UserOutlined />} />
@@ -94,24 +94,24 @@ const UserManagement = () => {
       ),
     },
     {
-      title: 'Username',
-      dataIndex: 'username',
-      key: 'username',
+      title: "Username",
+      dataIndex: "username",
+      key: "username",
     },
     {
-      title: 'Email',
-      dataIndex: 'email',
-      key: 'email',
+      title: "Email",
+      dataIndex: "email",
+      key: "email",
     },
     {
-      title: 'Phone',
-      dataIndex: 'phone',
-      key: 'phone',
+      title: "Phone",
+      dataIndex: "phone",
+      key: "phone",
     },
     {
-      title: 'Website',
-      dataIndex: 'website',
-      key: 'website',
+      title: "Website",
+      dataIndex: "website",
+      key: "website",
       render: (website) => (
         <a href={`http://${website}`} target="_blank" rel="noopener noreferrer">
           {website}
@@ -119,9 +119,9 @@ const UserManagement = () => {
       ),
     },
     {
-      title: 'Address',
-      dataIndex: 'address',
-      key: 'address',
+      title: "Address",
+      dataIndex: "address",
+      key: "address",
       render: (address) => (
         <span>
           {address.street}, {address.city}
@@ -129,26 +129,26 @@ const UserManagement = () => {
       ),
     },
     {
-      title: 'Company',
-      dataIndex: 'company',
-      key: 'company',
+      title: "Company",
+      dataIndex: "company",
+      key: "company",
       render: (company) => company.name,
     },
     {
-      title: 'Actions',
-      key: 'actions',
+      title: "Actions",
+      key: "actions",
       render: (_, record) => (
         <Space>
-          <Button 
-            type="link" 
+          <Button
+            type="link"
             icon={<EditOutlined />}
             onClick={() => handleEdit(record)}
           >
             Edit
           </Button>
-          <Button 
-            type="link" 
-            danger 
+          <Button
+            type="link"
+            danger
             icon={<DeleteOutlined />}
             onClick={() => deleteUser(record.id)}
           >
@@ -162,40 +162,40 @@ const UserManagement = () => {
   const handleEdit = (user) => {
     const updatedUser = {
       ...user,
-      name: `${user.name} (Updated)`
+      name: `${user.name} (Updated)`,
     };
     updateUser(user.id, updatedUser);
   };
 
   const handleAddUser = () => {
     const newUser = {
-      name: 'New User',
-      username: 'newuser',
-      email: 'newuser@example.com',
-      phone: '1-770-736-8031',
-      website: 'newuser.org',
+      name: "New User",
+      username: "newuser",
+      email: "newuser@example.com",
+      phone: "1-770-736-8031",
+      website: "newuser.org",
       address: {
-        street: 'New Street',
-        city: 'New City'
+        street: "New Street",
+        city: "New City",
       },
       company: {
-        name: 'New Company'
-      }
+        name: "New Company",
+      },
     };
     createUser(newUser);
   };
 
   return (
     <div style={{ padding: 24 }}>
-      <Card 
-        title="User Management" 
+      <Card
+        title="User Management"
         extra={
           <Button type="primary" onClick={handleAddUser}>
             Add User
           </Button>
         }
       >
-        <Table 
+        <Table
           columns={columns}
           dataSource={users}
           rowKey="id"
