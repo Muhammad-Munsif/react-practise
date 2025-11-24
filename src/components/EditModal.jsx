@@ -9,51 +9,53 @@ const EditModal = ({ user, updateUser, close }) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-gray-100 bg-opacity-50 flex justify-center items-center p-4">
-      <div className="bg-white p-6 rounded-lg shadow-xl w-full max-w-md">
-        <h2 className="text-xl font-semibold mb-4 ">Edit User</h2>
+    
+    <div className="fixed inset-0 bg-black bg-opacity-40 backdrop-blur-sm flex justify-center items-center p-4">
+  <div className="bg-white p-6 rounded-xl shadow-2xl w-full max-w-lg border">
+    <h2 className="text-2xl font-bold mb-4 text-gray-700">Edit User</h2>
 
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            className="w-full border p-2 rounded my-3 bg-red-300"
-            value={form.name}
-            onChange={(e) => setForm({ ...form, name: e.target.value })}
-          />
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        className="w-full border p-3 rounded-lg mb-3 focus:ring-2 focus:ring-blue-400"
+        value={form.name}
+        onChange={(e) => setForm({ ...form, name: e.target.value })}
+      />
 
-          <input
-            type="email"
-            className="w-full border p-2 rounded mb-3"
-            value={form.email}
-            onChange={(e) => setForm({ ...form, email: e.target.value })}
-          />
+      <input
+        type="email"
+        className="w-full border p-3 rounded-lg mb-3 focus:ring-2 focus:ring-blue-400"
+        value={form.email}
+        onChange={(e) => setForm({ ...form, email: e.target.value })}
+      />
 
-          <input
-            type="password"
-            className="w-full border p-2 rounded mb-3"
-            value={form.password}
-            onChange={(e) => setForm({ ...form, password: e.target.value })}
-          />
+      <input
+        type="password"
+        className="w-full border p-3 rounded-lg mb-4 focus:ring-2 focus:ring-blue-400"
+        value={form.password}
+        onChange={(e) => setForm({ ...form, password: e.target.value })}
+      />
 
-          <div className="flex justify-end gap-2">
-            <button
-              type="button"
-              onClick={close}
-              className="px-4 py-2 bg-gray-400 text-white rounded mb-3"
-            >
-              Cancel
-            </button>
+      <div className="flex justify-end gap-3">
+        <button
+          type="button"
+          onClick={close}
+          className="px-5 py-2 bg-gray-300 rounded-lg hover:bg-gray-400 transition"
+        >
+          Cancel
+        </button>
 
-            <button
-              type="submit"
-              className="px-4 py-2 bg-blue-600 text-white rounded mb-3"
-            >
-              Update
-            </button>
-          </div>
-        </form>
+        <button
+          type="submit"
+          className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+        >
+          Update
+        </button>
       </div>
-    </div>
+    </form>
+  </div>
+</div>
+
   );
 };
 
