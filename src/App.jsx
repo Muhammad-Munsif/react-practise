@@ -9,17 +9,19 @@ import Table from "./components/Table";
 import RandomUsers from "./components/RandomUsers";
 import ReqResUsers from "./components/ReqResUsers";
 import UserManagement from "./components/UsersManagement";
+import HandleTable from "./components/HandleTable";
 
 function App() {
   return (
     <div className="bg-gray-200 p-5 mx-auto min-h-screen ">
-      <RandomUsers />
+      <HandleTable/>
+      {/* <RandomUsers />
       <ReqResUsers />
       <UserManagement />
       <Table />
       <Form />
       <Component />
-      <Jsx />
+      <Jsx /> */}
     </div>
   );
 }
