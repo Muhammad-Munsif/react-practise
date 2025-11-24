@@ -1,12 +1,6 @@
 {
   "users": [
     {
-      "id": "24e1",
-      "name": "Muhammad Ali Khan",
-      "email": "aimal@gmail.com",
-      "password": "asdfa@@33"
-    },
-    {
       "id": "1d53",
       "name": "Abdul ullah",
       "email": "abdulullah@gmail.com",
@@ -25,10 +19,22 @@
       "password": "@!342"
     },
     {
-      "id": "5108",
-      "name": "saad ",
-      "email": "saad@gmail.com",
-      "password": "saad@3213"
+      "id": "161e",
+      "name": "ali khan zaman",
+      "email": "khanzaman@gmail.com",
+      "password": "alikhan@123"
+    },
+    {
+      "id": "1d34",
+      "name": "ahmad",
+      "email": "ahamd@gmail.com",
+      "password": "pass@123"
+    },
+    {
+      "id": "83c0",
+      "name": "asad jan",
+      "email": "asadjan@gmail.com",
+      "password": "soelo@123"
     }
   ]
 }

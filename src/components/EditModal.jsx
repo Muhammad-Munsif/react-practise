@@ -9,28 +9,28 @@ const EditModal = ({ user, updateUser, close }) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-10 backdrop-blur-sm flex justify-center items-center p-4">
-      <div className="bg-white p-6 rounded-xl shadow-2xl w-full max-w-lg border">
-        <h2 className="text-2xl font-bold mb-4 text-gray-700">Edit User</h2>
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center p-4 z-50">
+  <div className="bg-white p-6 rounded-lg shadow-xl w-full max-w-md">
+    <h2 className="text-2xl font-bold mb-4 text-gray-700">Edit User</h2>
 
         <form onSubmit={handleSubmit}>
           <input
             type="text"
-            className="w-full border p-3 rounded-lg  focus:ring-2 focus:ring-blue-400"
+            className="w-full border-none p-3 rounded-lg focus:outline-none  focus:ring-2 focus:ring-blue-400"
             value={form.name}
             onChange={(e) => setForm({ ...form, name: e.target.value })}
           />
 
           <input
             type="email"
-            className="w-full border p-3 rounded-lg my-3 focus:ring-2 focus:ring-blue-400"
+            className="w-full border-none p-3 rounded-lg outline-none my-3 focus:ring-2 focus:ring-blue-400"
             value={form.email}
             onChange={(e) => setForm({ ...form, email: e.target.value })}
           />
 
           <input
             type="password"
-            className="w-full border p-3 rounded-lg mb-4 focus:ring-2 focus:ring-blue-400"
+            className="w-full border p-3 rounded-lg outline-none mb-4 focus:ring-2 focus:ring-blue-400"
             value={form.password}
             onChange={(e) => setForm({ ...form, password: e.target.value })}
           />
@@ -52,8 +52,14 @@ const EditModal = ({ user, updateUser, close }) => {
             </button>
           </div>
         </form>
-      </div>
-    </div>
+  </div>
+</div>
+
+    // <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center p-4 z-50">
+    //   <div className="bg-white p-6 rounded-xl shadow-2xl w-full max-w-lg border">
+        
+    //   </div>
+    // </div>
   );
 };
 

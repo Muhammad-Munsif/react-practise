@@ -4,59 +4,65 @@ import UserActions from "./UserActions";
 const UserTable = ({ users, deleteUser, setEditingUser }) => {
   const [search, setSearch] = useState("");
 
-  // Pagination
-  const [page, setPage] = useState(1);
-  const recordsPerPage = 5;
   const filtered = users.filter((u) =>
     u.name.toLowerCase().includes(search.toLowerCase())
   );
 
-  const totalPages = Math.ceil(filtered.length / recordsPerPage);
-  const start = (page - 1) * recordsPerPage;
-  const paginated = filtered.slice(start, start + recordsPerPage);
-
   return (
-    <div>
+    <div className="mt-6">
+      {/* Search Bar */}
       <input
         type="text"
         placeholder="Search users..."
         value={search}
-        onChange={(e) => {
-          setSearch(e.target.value);
-          setPage(1);
-        }}
-        className="border p-3 rounded-lg w-full mb-4 shadow-sm focus:ring-2 focus:ring-blue-400"
+        onChange={(e) => setSearch(e.target.value)}
+        className="border p-3 rounded-lg w-full mb-4 shadow focus:ring-2 focus:ring-blue-500 outline-none"
       />
 
-      <div className="overflow-x-auto bg-white shadow-lg rounded-xl border">
-        <table className="w-full text-left">
-          <thead className="bg-gray-100 text-gray-700 border-b">
-            <tr>
-              <th className="p-3">ID</th>
-              <th className="p-3">Name</th>
-              <th className="p-3">Email</th>
-              <th className="p-3">Password</th>
-              <th className="p-3">Actions</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            {paginated.map((u) => (
-              <tr key={u.id} className="border-b hover:bg-gray-50 transition">
-                <td className="p-3">{u.id}</td>
-                <td className="p-3 font-semibold">{u.name}</td>
-                <td className="p-3">{u.email}</td>
-                <td className="p-3">{u.password}</td>
-                <td className="p-3">
-                  <UserActions
-                    onEdit={() => setEditingUser(u)}
-                    onDelete={() => deleteUser(u.id)}
-                  />
-                </td>
+      {/* Table Container */}
+      <div className="bg-white rounded-xl shadow-xl border overflow-hidden">
+        {/* Scrollable Table Body */}
+        <div className="max-h-[350px] overflow-y-auto">
+          <table className="w-full min-w-[600px]">
+            <thead className="bg-gray-100 sticky top-0 z-20 shadow-sm">
+              <tr className="text-gray-700 text-sm">
+                <th className="p-3 text-left font-semibold">ID</th>
+                <th className="p-3 text-left font-semibold">Name</th>
+                <th className="p-3 text-left font-semibold">Email</th>
+                <th className="p-3 text-left font-semibold">Password</th>
+                <th className="p-3 text-left font-semibold">Actions</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+
+            <tbody>
+              {filtered.map((u) => (
+                <tr key={u.id} className="border-b hover:bg-gray-50 transition">
+                  <td className="p-3">{u.id}</td>
+                  <td className="p-3 font-medium">{u.name}</td>
+                  <td className="p-3">{u.email}</td>
+                  <td className="p-3">{u.password}</td>
+                  <td className="p-3">
+                    <UserActions
+                      onEdit={() => setEditingUser(u)}
+                      onDelete={() => deleteUser(u.id)}
+                    />
+                  </td>
+                </tr>
+              ))}
+
+              {filtered.length === 0 && (
+                <tr>
+                  <td
+                    colSpan="5"
+                    className="text-center text-gray-500 p-6 italic"
+                  >
+                    No users found...
+                  </td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );
