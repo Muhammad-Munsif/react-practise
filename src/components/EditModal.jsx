@@ -25,7 +25,7 @@ const EditModal = ({ user, updateUser, close }) => {
             type="email"
             value={form.email}
             onChange={(e) => setForm({ ...form, email: e.target.value })}
-            className="w-full border p-3 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+            className="w-full border p-3 my-3 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
           />
 
           <input
