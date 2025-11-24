@@ -10,7 +10,8 @@ const HandleTable = () => {
   const [editingUser, setEditingUser] = useState(null);
 
   const fetchUsers = () => {
-    axios.get("http://localhost:5000/users")
+    axios
+      .get("http://localhost:5000/users")
       .then((res) => setUsers(res.data))
       .catch(() => toast.error("Failed to load users"));
   };
@@ -20,7 +21,8 @@ const HandleTable = () => {
   }, []);
 
   const addUser = (newUser) => {
-    axios.post("http://localhost:5000/users", newUser)
+    axios
+      .post("http://localhost:5000/users", newUser)
       .then(() => {
         toast.success("User added!");
         fetchUsers();
@@ -29,7 +31,8 @@ const HandleTable = () => {
   };
 
   const updateUser = (updatedUser) => {
-    axios.put(`http://localhost:5000/users/${updatedUser.id}`, updatedUser)
+    axios
+      .put(`http://localhost:5000/users/${updatedUser.id}`, updatedUser)
       .then(() => {
         toast.success("User updated!");
         setEditingUser(null);
@@ -39,7 +42,8 @@ const HandleTable = () => {
   };
 
   const deleteUser = (id) => {
-    axios.delete(`http://localhost:5000/users/${id}`)
+    axios
+      .delete(`http://localhost:5000/users/${id}`)
       .then(() => {
         toast.success("User deleted!");
         fetchUsers();
@@ -54,7 +58,7 @@ const HandleTable = () => {
 
       <UserForm addUser={addUser} />
 
-      <UserTable 
+      <UserTable
         users={users}
         deleteUser={deleteUser}
         setEditingUser={setEditingUser}
