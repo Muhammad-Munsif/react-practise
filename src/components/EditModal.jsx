@@ -9,57 +9,51 @@ const EditModal = ({ user, updateUser, close }) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center p-4 z-50">
-  <div className="bg-white p-6 rounded-lg shadow-xl w-full max-w-md">
-    <h2 className="text-2xl font-bold mb-4 text-gray-700">Edit User</h2>
+    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex justify-center items-center p-4 z-50">
+      <div className="bg-white rounded-2xl p-6 shadow-2xl w-full max-w-lg animate-fadeIn">
+        <h2 className="text-2xl font-semibold mb-5 border-b pb-3">Edit User</h2>
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="space-y-4">
           <input
             type="text"
-            className="w-full border-none p-3 rounded-lg focus:outline-none  focus:ring-2 focus:ring-blue-400"
             value={form.name}
             onChange={(e) => setForm({ ...form, name: e.target.value })}
+            className="w-full border p-3 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
           />
 
           <input
             type="email"
-            className="w-full border-none p-3 rounded-lg outline-none my-3 focus:ring-2 focus:ring-blue-400"
             value={form.email}
             onChange={(e) => setForm({ ...form, email: e.target.value })}
+            className="w-full border p-3 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
           />
 
           <input
             type="password"
-            className="w-full border p-3 rounded-lg outline-none mb-4 focus:ring-2 focus:ring-blue-400"
             value={form.password}
             onChange={(e) => setForm({ ...form, password: e.target.value })}
+            className="w-full border p-3 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
           />
 
           <div className="flex justify-end gap-3 mt-4">
             <button
               type="button"
               onClick={close}
-              className="px-6 py-3 font-semibold bg-gray-300 rounded-lg hover:bg-gray-400 transition"
+              className="px-5 py-2 bg-gray-300 rounded-lg hover:bg-gray-400 transition"
             >
               Cancel
             </button>
 
             <button
               type="submit"
-              className="px-6 py-3 font-semibold bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+              className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 shadow"
             >
               Update
             </button>
           </div>
         </form>
-  </div>
-</div>
-
-    // <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center p-4 z-50">
-    //   <div className="bg-white p-6 rounded-xl shadow-2xl w-full max-w-lg border">
-        
-    //   </div>
-    // </div>
+      </div>
+    </div>
   );
 };
 
