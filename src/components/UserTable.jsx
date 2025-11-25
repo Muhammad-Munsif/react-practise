@@ -54,7 +54,7 @@ const UserTable = ({ users, deleteUser, setEditingUser }) => {
                 <tr>
                   <td
                     colSpan="5"
-                    className="text-center text-gray-500 p-6 italic"
+                    className="text-center text-gray-500 p-6 italic font-semibold"
                   >
                     No users found...
                   </td>
