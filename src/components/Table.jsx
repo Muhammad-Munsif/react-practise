@@ -152,110 +152,110 @@ const Table = () => {
         </div>
       </div>
       <div className="w-full">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
-        {data.slice(0, 20).map(
-          (
-            item // Limit to 20 items for better performance
-          ) => (
-            <div
-              key={item.id}
-              className="bg-white p-4 border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow"
-            >
-              <img
-                src={item.thumbnailUrl}
-                alt={item.title}
-                className="w-full h-32 object-cover rounded mb-3"
-              />
-              <p className="text-sm text-gray-600 mb-1">ID: {item.id}</p>
-              <p
-                className="text-xs text-gray-500 mb-2 truncate"
-                title={item.title}
+        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
+          {data.slice(0, 20).map(
+            (
+              item // Limit to 20 items for better performance
+            ) => (
+              <div
+                key={item.id}
+                className="bg-white p-4 border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow"
               >
-                {item.title}
-              </p>
-              <a
-                href={item.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-500 hover:text-blue-700 text-xs break-all"
-              >
-                View Image
-              </a>
-            </div>
-          )
-        )}
+                <img
+                  src={item.thumbnailUrl}
+                  alt={item.title}
+                  className="w-full h-32 object-cover rounded mb-3"
+                />
+                <p className="text-sm text-gray-600 mb-1">ID: {item.id}</p>
+                <p
+                  className="text-xs text-gray-500 mb-2 truncate"
+                  title={item.title}
+                >
+                  {item.title}
+                </p>
+                <a
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-500 hover:text-blue-700 text-xs break-all"
+                >
+                  View Image
+                </a>
+              </div>
+            )
+          )}
+        </div>
       </div>
-    </div>
-    <div className="w-full">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
-        {data.slice(0, 20).map(
-          (
-            item // Limit to 20 items for better performance
-          ) => (
-            <div
-              key={item.id}
-              className="bg-white p-4 border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow"
-            >
-              <img
-                src={item.thumbnailUrl}
-                alt={item.title}
-                className="w-full h-32 object-cover rounded mb-3"
-              />
-              <p className="text-sm text-gray-600 mb-1">ID: {item.id}</p>
-              <p
-                className="text-xs text-gray-500 mb-2 truncate"
-                title={item.title}
+      <div className="w-full">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
+          {data.slice(0, 20).map(
+            (
+              item // Limit to 20 items for better performance
+            ) => (
+              <div
+                key={item.id}
+                className="bg-white p-4 border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow"
               >
-                {item.title}
-              </p>
-              <a
-                href={item.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-500 hover:text-blue-700 text-xs break-all"
-              >
-                View Image
-              </a>
-            </div>
-          )
-        )}
+                <img
+                  src={item.thumbnailUrl}
+                  alt={item.title}
+                  className="w-full h-32 object-cover rounded mb-3"
+                />
+                <p className="text-sm text-gray-600 mb-1">ID: {item.id}</p>
+                <p
+                  className="text-xs text-gray-500 mb-2 truncate"
+                  title={item.title}
+                >
+                  {item.title}
+                </p>
+                <a
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-500 hover:text-blue-700 text-xs break-all"
+                >
+                  View Image
+                </a>
+              </div>
+            )
+          )}
+        </div>
       </div>
-    </div>
-    <div className="w-full">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
-        {data.slice(0, 20).map(
-          (
-            item // Limit to 20 items for better performance
-          ) => (
-            <div
-              key={item.id}
-              className="bg-white p-4 border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow"
-            >
-              <img
-                src={item.thumbnailUrl}
-                alt={item.title}
-                className="w-full h-32 object-cover rounded mb-3"
-              />
-              <p className="text-sm text-gray-600 mb-1">ID: {item.id}</p>
-              <p
-                className="text-xs text-gray-500 mb-2 truncate"
-                title={item.title}
+      <div className="w-full">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
+          {data.slice(0, 20).map(
+            (
+              item // Limit to 20 items for better performance
+            ) => (
+              <div
+                key={item.id}
+                className="bg-white p-4 border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow"
               >
-                {item.title}
-              </p>
-              <a
-                href={item.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-500 hover:text-blue-700 text-xs break-all"
-              >
-                View Image
-              </a>
-            </div>
-          )
-        )}
+                <img
+                  src={item.thumbnailUrl}
+                  alt={item.title}
+                  className="w-full h-32 object-cover rounded mb-3"
+                />
+                <p className="text-sm text-gray-600 mb-1">ID: {item.id}</p>
+                <p
+                  className="text-xs text-gray-500 mb-2 truncate"
+                  title={item.title}
+                >
+                  {item.title}
+                </p>
+                <a
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-500 hover:text-blue-700 text-xs break-all"
+                >
+                  View Image
+                </a>
+              </div>
+            )
+          )}
+        </div>
       </div>
-    </div>
     </>
   );
 };
