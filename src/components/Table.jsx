@@ -45,6 +45,7 @@ const Table = () => {
   }
 
   return (
+    <>
     <div className="w-full">
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
         {data.slice(0, 20).map(
@@ -80,6 +81,8 @@ const Table = () => {
         )}
       </div>
     </div>
+    
+    </>
   );
 };
 
