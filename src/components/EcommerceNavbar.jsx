@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navbar, Container, Nav, Form, Button, FormControl, Badge, Dropdown, InputGroup } from 'react-bootstrap';
-import { Search, PersonCircle } from 'react-bootstrap-icons'; 
+import { Search, PersonCircle, Cart } from 'react-bootstrap-icons'; 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // --- Dummy Data (Replace with your actual state/props) ---
@@ -80,7 +80,7 @@ function EcommerceNavbar() {
 
             {/* Cart Icon and Count */}
             <Nav.Link href="/cart" className="position-relative ms-3">
-              <ShoppingCart size={24} className="me-1" />
+            <Cart size={24} className="me-1" />
               Cart
               {/* Badge for item count */}
               <Badge 
