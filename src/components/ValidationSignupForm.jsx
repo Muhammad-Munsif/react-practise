@@ -1,27 +1,27 @@
-import React, { useState } from 'react';
-import { Form, Button, Container, Row, Col } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useState } from "react";
+import { Form, Button, Container, Row, Col } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function ValidatedSignupForm() {
   // 1. State for controlling validation feedback display
   const [validated, setValidated] = useState(false);
-  
+
   // 2. State for form data and custom error checking
   const [formData, setFormData] = useState({
-    email: '',
-    password: '',
+    email: "",
+    password: "",
     agreed: false,
   });
 
   // Function to check if password is valid (custom rule)
   const isPasswordValid = formData.password.length >= 6;
-  
+
   // Handler for all input changes
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-    setFormData(prevData => ({
+    setFormData((prevData) => ({
       ...prevData,
-      [name]: type === 'checkbox' ? checked : value,
+      [name]: type === "checkbox" ? checked : value,
     }));
   };
 
@@ -33,14 +33,14 @@ function ValidatedSignupForm() {
     if (form.checkValidity() === false || !isPasswordValid) {
       event.stopPropagation(); // Stop event propagation if form is invalid
     }
-    
+
     // Set 'validated' to true to show all feedback styles
-    setValidated(true); 
+    setValidated(true);
 
     // If both native checks and custom checks pass
     if (form.checkValidity() === true && isPasswordValid) {
-      console.log('Form is valid. Submitting data:', formData);
-      alert('Registration successful!');
+      console.log("Form is valid. Submitting data:", formData);
+      alert("Registration successful!");
     }
   };
 
@@ -50,17 +50,16 @@ function ValidatedSignupForm() {
         <Col xs={12} md={6} lg={5}>
           <h2>Validated Registration</h2>
           <hr />
-          
+
           {/* Apply the 'validated' prop to the Form component */}
           <Form noValidate validated={validated} onSubmit={handleSubmit}>
-            
             {/* Email Field */}
             <Form.Group className="mb-3" controlId="validationEmail">
               <Form.Label>Email address</Form.Label>
-              <Form.Control 
+              <Form.Control
                 required // Native HTML validation check
-                type="email" 
-                placeholder="Enter email" 
+                type="email"
+                placeholder="Enter email"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
@@ -74,10 +73,10 @@ function ValidatedSignupForm() {
             {/* Password Field */}
             <Form.Group className="mb-3" controlId="validationPassword">
               <Form.Label>Password</Form.Label>
-              <Form.Control 
+              <Form.Control
                 required
-                type="password" 
-                placeholder="Password" 
+                type="password"
+                placeholder="Password"
                 name="password"
                 value={formData.password}
                 onChange={handleChange}
@@ -88,12 +87,12 @@ function ValidatedSignupForm() {
                 Password must be at least 6 characters long.
               </Form.Control.Feedback>
             </Form.Group>
-            
+
             {/* Checkbox */}
             <Form.Group className="mb-3" controlId="validationCheckbox">
-              <Form.Check 
+              <Form.Check
                 required
-                type="checkbox" 
+                type="checkbox"
                 label="I agree to the terms"
                 name="agreed"
                 checked={formData.agreed}
